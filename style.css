@@ -1,0 +1,109 @@
+/* One stylesheet for the four legal pages. Plain, readable, and the same in
+   Arabic and English -- the English blocks flip direction, nothing else. */
+
+:root {
+  --bg: #f7f9fb;
+  --card: #ffffff;
+  --ink: #16212b;
+  --ink-soft: #55636f;
+  --rule: #e2e8ee;
+  --brand: #67b2d8;
+  --brand-deep: #2d7fa8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #101820;
+    --card: #17212b;
+    --ink: #e8eef3;
+    --ink-soft: #9aa8b4;
+    --rule: #26333f;
+    --brand: #67b2d8;
+    --brand-deep: #8ecbe9;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #101820;
+  --card: #17212b;
+  --ink: #e8eef3;
+  --ink-soft: #9aa8b4;
+  --rule: #26333f;
+  --brand: #67b2d8;
+  --brand-deep: #8ecbe9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 16px 64px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Segoe UI', Tahoma, system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; }
+
+header {
+  padding: 40px 0 24px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 28px;
+}
+
+.brand {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--brand-deep);
+  text-decoration: none;
+}
+
+h1 { font-size: 30px; line-height: 1.35; margin: 14px 0 6px; }
+h2 { font-size: 21px; margin: 34px 0 10px; }
+h3 { font-size: 17px; margin: 24px 0 6px; color: var(--brand-deep); }
+
+.meta { color: var(--ink-soft); font-size: 15px; margin: 0; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 20px 22px;
+  margin: 22px 0;
+}
+
+.card p:first-child, .card ul:first-child { margin-top: 0; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+ul { padding-inline-start: 22px; }
+li { margin: 6px 0; }
+
+a { color: var(--brand-deep); }
+
+.en {
+  direction: ltr;
+  text-align: left;
+  border-top: 1px solid var(--rule);
+  margin-top: 52px;
+  padding-top: 8px;
+}
+
+.nav { margin-top: 44px; font-size: 16px; }
+.nav a { display: inline-block; margin-inline-end: 18px; }
+
+footer {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  h1 { font-size: 25px; }
+}
